@@ -34,14 +34,14 @@ void Android::dibujar(){
     glPopMatrix();
 
     glPushMatrix();
-      glTranslatef(radC/2.0, highC*1.2 - highC, 0);
+      glTranslatef(-radC/2.0, highC*1.2 - highC, 0);
       glRotatef(gradePierna, 1, 0, 0);
       piernaIzq.dibujar();
     glPopMatrix();
 
     glPushMatrix();
       glScalef(-1, 1, -1);
-      glTranslatef(radC/2.0, highC*1.2 - highC, 0);
+      glTranslatef(-radC/2.0, highC*1.2 - highC, 0);
       glRotatef(gradePierna, 1, 0, 0);
       piernaDcha.dibujar();
     glPopMatrix();
@@ -68,9 +68,9 @@ void Android::girarCabeza(){
 
 void Android::girarBrazo(){
   if(sentidoBrazo)
-    gradeBrazo++;
+    gradeBrazo+= 3;
   else
-    gradeBrazo--;
+    gradeBrazo-= 3;
 
   if(gradeBrazo==45)
     sentidoBrazo= false;
@@ -92,9 +92,9 @@ void Android::subirCabeza(){
 
 void Android::girarPierna(){
   if(sentidoPierna)
-    gradePierna++;
+    gradePierna+= 3;
   else
-    gradePierna--;
+    gradePierna-= 3;
 
   if(gradePierna== 45)
     sentidoPierna= false;

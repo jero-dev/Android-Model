@@ -80,7 +80,10 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y)
       android.subirCabeza();
       break;
     case 'G':
-      
+      android.girarAnt();
+      android.girarBrazo();
+      android.girarPierna();
+      android.subirCabeza();
       break;
     case 'Q':
       return 1;
