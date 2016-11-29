@@ -10,7 +10,7 @@ Android::Android():Objeto3D(){
 
   objC.setColors(0.0, 0.75, 0.25);
 
-  sentidoBrazo= sentidoPierna=  sentidoCabeza= true;
+  sentidoBrazo= sentidoPierna=  sentidoCabeza= sentidoMP= true;
 }
 
 void Android::dibujar(){
@@ -102,6 +102,19 @@ void Android::girarPierna(){
     sentidoPierna= false;
   if(gradePierna < -45)
     sentidoPierna= true;
+
+  if(sentidoMP){
+    piernaIzq.girarPiernaBaja(gradePierna/1.2);
+    piernaDcha.girarPiernaBaja(-gradePierna/1.2);
+  }
+  else{
+    piernaIzq.girarPiernaBaja(-gradePierna/1.2);
+    piernaDcha.girarPiernaBaja(gradePierna/1.2);
+  }
+
+  if(gradePierna==0)
+    sentidoMP= !sentidoMP;
+
 }
 
 void Android::setMode(GLenum polygonMode){

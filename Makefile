@@ -23,7 +23,7 @@ CC = g++
 
 # definicion de objetos
 #
-OBJECTS= practica3.o escena.o ejes.o objeto3d.o revolucion.o android.o antenaand.o brazoand.o cabezaand.o piernaand.o
+OBJECTS= practica3.o escena.o ejes.o objeto3d.o revolucion.o android.o antenaand.o brazoand.o cabezaand.o piernaand.o mediapierna.o
 # orden que sera ejecutada por defecto
 #
 default : $(TARGETS)

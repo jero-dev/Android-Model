@@ -17,7 +17,7 @@ class Android : public Objeto3D{
     BrazoAnd brazoIzq, brazoDcho;
     PiernaAnd piernaIzq, piernaDcha;
     CabezaAnd cabeza;
-    bool sentidoBrazo, sentidoPierna, sentidoCabeza;
+    bool sentidoBrazo, sentidoPierna, sentidoCabeza, sentidoMP;
   public:
     Android();
     void dibujar();
