@@ -35,9 +35,9 @@ BrazoAnd::BrazoAnd():Objeto3D(){
   objC= cilind;
   objE2= sphere;
 
-  objE1.setColors(0.0, 0.5, 0.5);
-  objC.setColors(0.0, 0.5, 0.5);
-  objE2.setColors(0.0, 0.5, 0.5);
+  objE1.setColors(0.0, 0.75, 0.25);
+  objC.setColors(0.0, 0.75, 0.25);
+  objE2.setColors(0.0, 0.75, 0.25);
 }
 
 void BrazoAnd::dibujar(){

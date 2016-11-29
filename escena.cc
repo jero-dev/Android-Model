@@ -12,6 +12,8 @@ Escena::Escena()
 {
   Front_plane=50;
   Back_plane=2000;
+  animacion= false;
+  solido= true;
   Observer_distance = 4*Front_plane;
   Observer_angle_x = Observer_angle_y=0;
   ejes.changeAxisSize(5000);
@@ -31,13 +33,36 @@ void Escena::inicializar(int UI_window_width,int UI_window_height)
 
 }
 
+void Escena::animar(){
+  if(animacion){
+    android.girarAnt();
+    android.girarBrazo();
+    android.girarPierna();
+    android.subirCabeza();
+  }
+}
+
 
 //**************************************************************************
 // Funcion que dibuja objetos en la escena
 //***************************************************************************
 void Escena::draw_objects()
 {
-  android.dibujar();
+  if(solido){
+    glPushMatrix();
+      glPushMatrix();
+        android.setMode(GL_LINE);
+        android.dibujar();
+      glPopMatrix();
+
+      glPushMatrix();
+        android.setMode(GL_FILL);
+        android.dibujar();
+      glPopMatrix();
+    glPopMatrix();
+  }
+  else
+    android.dibujar();
 }
 
 void Escena::dibujar()
@@ -57,12 +82,15 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y)
   {
     case 'S':
       android.setMode(GL_FILL);
+      solido= true;
       break;
     case 'L':
       android.setMode(GL_LINE);
+      solido= false;
       break;
     case 'P':
       android.setMode(GL_POINT);
+      solido= false;
       break;
     case 'A':
       android.girarAnt();
@@ -80,10 +108,13 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y)
       android.subirCabeza();
       break;
     case 'G':
-      android.girarAnt();
-      android.girarBrazo();
-      android.girarPierna();
-      android.subirCabeza();
+      animacion= !animacion;
+      break;
+    case 'H':
+      android.aumentarVelocidad(2);
+      break;
+    case 'J':
+      android.disminuirVelocidad(2);
       break;
     case 'Q':
       return 1;

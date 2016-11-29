@@ -3,7 +3,9 @@
 #include <cmath>
 
 PiernaAnd::PiernaAnd():Objeto3D(){
-  Revolucion cilind({10.0, 50.0, 0.0, 10.0, 0.0, 0.0}, 300, 'y');
+  rad= 10; high= 50;
+
+  Revolucion cilind({rad, high, 0.0, rad, 0.0, 0.0}, 300, 'y');
 
   vector<float> vert;
 
@@ -11,7 +13,7 @@ PiernaAnd::PiernaAnd():Objeto3D(){
   vert.push_back(0.0);
   vert.push_back(0.0);
 
-  vert.push_back(10.0);
+  vert.push_back(rad);
   vert.push_back(0.0);
   vert.push_back(0.0);
 
@@ -19,14 +21,14 @@ PiernaAnd::PiernaAnd():Objeto3D(){
   float angle= grade;
 
   while(grade < M_PI/2){
-    vert.push_back(10.0 * cos(grade));
-    vert.push_back(10.0 * sin(grade));
+    vert.push_back(rad * cos(grade));
+    vert.push_back(rad * sin(grade));
     vert.push_back(0.0);
     grade+= angle;
   }
 
   vert.push_back(0.0);
-  vert.push_back(10.0);
+  vert.push_back(rad);
   vert.push_back(0.0);
 
   Revolucion sphere(vert, 300, 'y');
@@ -34,19 +36,19 @@ PiernaAnd::PiernaAnd():Objeto3D(){
   objE= sphere;
   objC= cilind;
 
-  objE.setColors(0.0, 0.5, 0.5);
-  objC.setColors(0.0, 0.5, 0.5);
+  objE.setColors(0.0, 0.75, 0.25);
+  objC.setColors(0.0, 0.75, 0.25);
 }
 
 void PiernaAnd::dibujar(){
   glPushMatrix();
     glPushMatrix();
-      glTranslatef(0.0, -50.0, 0.0);
+      glTranslatef(0.0, -high, 0.0);
       glRotatef(180, 0.0, 0.0, 1.0);
       objE.dibujar();
     glPopMatrix();
     glPushMatrix();
-      glTranslatef(0.0, -50.0, 0.0);
+      glTranslatef(0.0, -high, 0.0);
       objC.dibujar();
     glPopMatrix();
   glPopMatrix();
@@ -55,4 +57,8 @@ void PiernaAnd::dibujar(){
 void PiernaAnd::setMode(GLenum polygonMode){
   objE.setMode(polygonMode);
   objC.setMode(polygonMode);
+}
+
+float PiernaAnd::getLength(){
+  return high + rad;
 }

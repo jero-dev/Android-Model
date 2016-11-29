@@ -34,8 +34,8 @@ AntenaAnd::AntenaAnd():Objeto3D(){
   objE= sphere;
   objC= cilind;
 
-  objE.setColors(0.0, 0.5, 0.5);
-  objC.setColors(0.0, 0.5, 0.5);
+  objE.setColors(0.0, 0.75, 0.25);
+  objC.setColors(0.0, 0.75, 0.25);
 }
 
 void AntenaAnd::dibujar(){

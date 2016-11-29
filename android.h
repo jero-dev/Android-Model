@@ -13,7 +13,7 @@ class Android : public Objeto3D{
   private:
     Revolucion cilind;
     Objeto3D objC;
-    float highC, radC, gradeBrazo, gradePierna, gradeCabeza, translateCabeza;
+    float highC, radC, gradeBrazo, gradePierna, gradeCabeza, translateCabeza, scale, velocidadC, velocidadO;
     BrazoAnd brazoIzq, brazoDcho;
     PiernaAnd piernaIzq, piernaDcha;
     CabezaAnd cabeza;
@@ -26,6 +26,8 @@ class Android : public Objeto3D{
     void girarPierna();
     void girarCabeza();
     void subirCabeza();
+    void aumentarVelocidad(float vel);
+    void disminuirVelocidad(float vel);
     void setMode(GLenum polygonMode);
 };
 

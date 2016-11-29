@@ -63,6 +63,11 @@ void normal_keys(unsigned char Tecla1,int x,int y)
 		glutPostRedisplay();
 }
 
+void animar(){
+	escena->animar();
+	glutPostRedisplay();
+}
+
 //***************************************************************************
 // Funcion llamada cuando se produce aprieta una tecla especial
 //
@@ -75,8 +80,10 @@ void normal_keys(unsigned char Tecla1,int x,int y)
 
 void special_keys(int Tecla1,int x,int y)
 {
-	if (escena!=NULL)
+	if (escena!=NULL){
 		escena->teclaEspecial(Tecla1,x,y);
+		glutIdleFunc(animar);
+	}
 	glutPostRedisplay();
 }
 

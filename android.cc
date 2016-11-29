@@ -3,18 +3,20 @@
 #include <cmath>
 
 Android::Android():Objeto3D(){
-  radC= 50; highC= 85; gradeBrazo= 0; gradePierna= 0; gradeCabeza= 0, translateCabeza= 0;
+  radC= 50; highC= 85; gradeBrazo= 0; gradePierna= 0; gradeCabeza= 0, translateCabeza= 0; scale= 0.75; velocidadC= 1; velocidadO= 3;
   Revolucion cilind({radC, highC, 0.0, radC, 0.0, 0.0}, 100, 'y');
 
   objC= cilind;
 
-  objC.setColors(0.0, 0.5, 0.5);
+  objC.setColors(0.0, 0.75, 0.25);
 
   sentidoBrazo= sentidoPierna=  sentidoCabeza= true;
 }
 
 void Android::dibujar(){
   glPushMatrix();
+    glTranslatef(0.0, piernaIzq.getLength()*scale - highC*0.2, 0.0);
+    glScalef(scale, scale, scale);
 
     glPushMatrix();
       objC.dibujar();
@@ -60,7 +62,7 @@ void Android::girarAnt(){
 }
 
 void Android::girarCabeza(){
-  gradeCabeza++;
+  gradeCabeza+= velocidadC;
 
   if(gradeCabeza == 360)
     gradeCabeza= 0;
@@ -68,37 +70,37 @@ void Android::girarCabeza(){
 
 void Android::girarBrazo(){
   if(sentidoBrazo)
-    gradeBrazo+= 3;
+    gradeBrazo+= velocidadO;
   else
-    gradeBrazo-= 3;
+    gradeBrazo= gradeBrazo - velocidadO;
 
-  if(gradeBrazo==45)
+  if(gradeBrazo > 45)
     sentidoBrazo= false;
-  if(gradeBrazo== -45)
+  if(gradeBrazo < -45)
     sentidoBrazo= true;
 }
 
 void Android::subirCabeza(){
   if(sentidoCabeza)
-    translateCabeza++;
+    translateCabeza+= velocidadC;
   else
-    translateCabeza--;
+    translateCabeza= translateCabeza - velocidadC;
 
-  if(translateCabeza==10)
+  if(translateCabeza > 20)
     sentidoCabeza= false;
-  if(translateCabeza== 0)
+  if(translateCabeza < 0)
     sentidoCabeza= true;
 }
 
 void Android::girarPierna(){
   if(sentidoPierna)
-    gradePierna+= 3;
+    gradePierna+= velocidadO;
   else
-    gradePierna-= 3;
+    gradePierna= gradePierna - velocidadO;
 
-  if(gradePierna== 45)
+  if(gradePierna > 45)
     sentidoPierna= false;
-  if(gradePierna== -45)
+  if(gradePierna < -45)
     sentidoPierna= true;
 }
 
@@ -109,4 +111,20 @@ void Android::setMode(GLenum polygonMode){
   piernaIzq.setMode(polygonMode);
   piernaDcha.setMode(polygonMode);
   cabeza.setMode(polygonMode);
+}
+
+void Android::aumentarVelocidad(float vel){
+  if(velocidadO < 48 && velocidadC < 16){
+    velocidadO *= vel;
+    velocidadC *= vel;
+    cabeza.aumentarVelocidad(vel);
+  }
+}
+
+void Android::disminuirVelocidad(float vel){
+  if(velocidadO > 3 && velocidadC > 1){
+    velocidadO /= vel;
+    velocidadC /= vel;
+    cabeza.disminuirVelocidad(vel);
+  }
 }

@@ -5,6 +5,7 @@
 CabezaAnd::CabezaAnd():Objeto3D(){
   vector<float> vert;
   sentido= true;
+  velocidad= 1;
 
   radE= 50; gradeAnt= 45;
 
@@ -34,7 +35,7 @@ CabezaAnd::CabezaAnd():Objeto3D(){
 
   objE= sphere;
 
-  objE.setColors(0.0, 0.5, 0.5);
+  objE.setColors(0.0, 0.75, 0.25);
 }
 
 void CabezaAnd::dibujar(){
@@ -58,13 +59,13 @@ void CabezaAnd::dibujar(){
 
 void CabezaAnd::girarAnt(){
   if(sentido)
-    gradeAnt--;
+    gradeAnt= gradeAnt - velocidad;
   else
-    gradeAnt++;
+    gradeAnt+= velocidad;
 
-  if(gradeAnt == 0)
+  if(gradeAnt < 0)
     sentido= false;
-  if(gradeAnt == 45)
+  if(gradeAnt > 45)
     sentido= true;
 }
 
@@ -72,4 +73,14 @@ void CabezaAnd::setMode(GLenum polygonMode){
   objE.setMode(polygonMode);
   antenaIzq.setMode(polygonMode);
   antenaDcha.setMode(polygonMode);
+}
+
+void CabezaAnd::aumentarVelocidad(float vel){
+  if(velocidad < 16)
+    velocidad *= vel;
+}
+
+void CabezaAnd::disminuirVelocidad(float vel){
+  if(velocidad > 1)
+    velocidad /= vel;
 }

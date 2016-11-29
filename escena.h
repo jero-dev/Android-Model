@@ -20,7 +20,9 @@ GLfloat Observer_angle_y;
 // variables que controlan la ventana y la transformacion de perspectiva
 GLfloat Width,Height,Front_plane,Back_plane;
 
-
+bool animacion;
+float velocidad;
+bool solido;
 Android android;
 
 char mode;
@@ -45,6 +47,7 @@ public:
 
 	// Dibujar
 	void dibujar() ;
+	void animar();
 
 	// Interacci�n con la escena
 	int teclaPulsada(unsigned char Tecla1,int x,int y) ;

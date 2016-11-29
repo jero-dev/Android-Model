@@ -10,7 +10,7 @@ using namespace std;
 class CabezaAnd : public Objeto3D{
   private:
     Revolucion sphere;
-    float radE, gradeAnt;
+    float radE, gradeAnt, velocidad;
     AntenaAnd antenaIzq, antenaDcha;
     Objeto3D objE;
     bool sentido;
@@ -19,6 +19,8 @@ class CabezaAnd : public Objeto3D{
     void dibujar();
     void girarAnt();
     void setMode(GLenum polygonMode);
+    void aumentarVelocidad(float vel);
+    void disminuirVelocidad(float vel);
 };
 
 #endif
