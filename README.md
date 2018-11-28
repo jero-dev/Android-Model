@@ -3,7 +3,7 @@ Google's Android 3D Model created with OpenGL and C++
 
 ## How to use
 
-  * Key G: Molid model with may
+  * Key S: Solid model with may
   * Key L: Model with lines
   * Key P: Model with points
 
