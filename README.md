@@ -17,3 +17,5 @@ Google's Android 3D Model created with OpenGL and C++
 * Key C: Spin the head
 * Key R: Up the head
 * Key A: Move the feeler
+
+######################## Mira que chulo
