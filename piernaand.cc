@@ -2,7 +2,8 @@
 #include <iostream>
 #include <cmath>
 
-PiernaAnd::PiernaAnd():Objeto3D(){
+PiernaAnd::PiernaAnd():Objeto3D()
+{
   rad= 10; high= 25; gradeMp= 0;
 
   Revolucion cilind({rad, high, 0.0, rad, 0.0, 0.0}, 300, 'y');
@@ -11,7 +12,8 @@ PiernaAnd::PiernaAnd():Objeto3D(){
   objC.setColors(0.0, 0.75, 0.25);
 }
 
-void PiernaAnd::dibujar(){
+void PiernaAnd::dibujar()
+{
   glPushMatrix();
     glPushMatrix();
       glTranslatef(0.0, -high, 0.0);
@@ -25,15 +27,18 @@ void PiernaAnd::dibujar(){
   glPopMatrix();
 }
 
-void PiernaAnd::setMode(GLenum polygonMode){
+void PiernaAnd::setMode(GLenum polygonMode)
+{
   mp.setMode(polygonMode);
   objC.setMode(polygonMode);
 }
 
-float PiernaAnd::getLength(){
+float PiernaAnd::getLength()
+{
   return high + rad + mp.getLength();
 }
 
-void PiernaAnd::girarPiernaBaja(float grade){
+void PiernaAnd::girarPiernaBaja(float grade)
+{
   gradeMp= grade;
 }

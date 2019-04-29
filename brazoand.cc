@@ -2,7 +2,8 @@
 #include <iostream>
 #include <cmath>
 
-BrazoAnd::BrazoAnd():Objeto3D(){
+BrazoAnd::BrazoAnd():Objeto3D()
+{
   Revolucion cilind({10.0, 50.0, 0.0, 10.0, 0.0, 0.0}, 150, 'y');
 
   vector<float> vert;
@@ -18,7 +19,8 @@ BrazoAnd::BrazoAnd():Objeto3D(){
   float grade= (M_PI/2) / 20;
   float angle= grade;
 
-  while(grade < M_PI/2){
+  while(grade < M_PI/2)
+  {
     vert.push_back(10.0 * cos(grade));
     vert.push_back(10.0 * sin(grade));
     vert.push_back(0.0);
@@ -40,7 +42,8 @@ BrazoAnd::BrazoAnd():Objeto3D(){
   objE2.setColors(0.0, 0.75, 0.25);
 }
 
-void BrazoAnd::dibujar(){
+void BrazoAnd::dibujar()
+{
   glPushMatrix();
     glPushMatrix();
       objE1.dibujar();
@@ -57,7 +60,8 @@ void BrazoAnd::dibujar(){
   glPopMatrix();
 }
 
-void BrazoAnd::setMode(GLenum polygonMode){
+void BrazoAnd::setMode(GLenum polygonMode)
+{
   objE1.setMode(polygonMode);
   objC.setMode(polygonMode);
   objE2.setMode(polygonMode);

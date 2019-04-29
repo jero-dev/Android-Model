@@ -23,7 +23,8 @@ void Objeto3D::dibujar()
   glDrawElements(GL_TRIANGLES, caras.size(), GL_UNSIGNED_INT, &caras[0]);
 }
 
-void Objeto3D::setMode(GLenum mode){
+void Objeto3D::setMode(GLenum mode)
+{
   polygonMode= mode;
 
   if(polygonMode == GL_LINE)
@@ -32,7 +33,8 @@ void Objeto3D::setMode(GLenum mode){
     setColors(0, 0.75, 0.25);
 }
 
-void Objeto3D::setObject(vector<float> &vert, vector<int> &faces){
+void Objeto3D::setObject(vector<float> &vert, vector<int> &faces)
+{
   color.clear();
   vertices.clear();
   caras.clear();
@@ -47,9 +49,11 @@ void Objeto3D::setObject(vector<float> &vert, vector<int> &faces){
     caras.push_back(faces[i]);
 }
 
-void Objeto3D::setColors(float x, float y, float z){
+void Objeto3D::setColors(float x, float y, float z)
+{
   color.clear();
-  for(int i= 0; i < vertices.size(); i+= 3){
+  for(int i= 0; i < vertices.size(); i+= 3)
+  {
     color.push_back(x);
     color.push_back(y);
     color.push_back(z);

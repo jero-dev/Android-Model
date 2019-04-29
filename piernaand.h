@@ -7,7 +7,8 @@
 
 using namespace std;
 
-class PiernaAnd : public Objeto3D{
+class PiernaAnd : public Objeto3D
+{
   private:
     float rad, high, gradeMp;
     Revolucion cilind;

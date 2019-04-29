@@ -7,7 +7,8 @@
 
 using namespace std;
 
-class CabezaAnd : public Objeto3D{
+class CabezaAnd : public Objeto3D
+{
   private:
     Revolucion sphere;
     float radE, gradeAnt, velocidad;

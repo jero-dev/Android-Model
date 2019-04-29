@@ -5,20 +5,24 @@
 #include <GL/glut.h>
 #include "ejes.h"
 
-Ejes::Ejes(){
+Ejes::Ejes()
+{
     axisSize = 1000;
 }
 
-void Ejes::changeAxisSize(float newSize) {
+void Ejes::changeAxisSize(float newSize)
+{
 	axisSize = newSize;
 	createArrayData();
 }
 
-void Ejes::draw(){
+void Ejes::draw()
+{
 	drawBeginEnd();
 }
 
-void Ejes::createArrayData(){
+void Ejes::createArrayData()
+{
 	colorArray[0] = 1; colorArray[1] = 0; colorArray[2] = 0;
 	colorArray[3] = 1; colorArray[4] = 0; colorArray[5] = 0;
 	colorArray[6] = 0; colorArray[7] = 1; colorArray[8] = 0;
@@ -34,8 +38,9 @@ void Ejes::createArrayData(){
 	vertexArray[15] = 0; vertexArray[16] = 0; vertexArray[17] = axisSize;
 }
 
-void Ejes::drawBeginEnd(){
-glBegin(GL_LINES);
+void Ejes::drawBeginEnd()
+{
+	glBegin(GL_LINES);
 	// eje X, color rojo
 	glColor3f(1,0,0);
 	glVertex3f(-axisSize,0,0);
@@ -51,7 +56,8 @@ glBegin(GL_LINES);
 	glEnd();
 }
 
-void Ejes::drawArray(){
+void Ejes::drawArray()
+{
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, vertexArray );
 	glEnableClientState(GL_COLOR_ARRAY);

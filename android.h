@@ -9,7 +9,8 @@
 
 using namespace std;
 
-class Android : public Objeto3D{
+class Android : public Objeto3D
+{
   private:
     Revolucion cilind;
     Objeto3D objC;

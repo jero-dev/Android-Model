@@ -6,7 +6,8 @@
 
 using namespace std;
 
-class BrazoAnd : public Objeto3D{
+class BrazoAnd : public Objeto3D
+{
   private:
     Revolucion sphere, cilind;
     Objeto3D objE1, objC, objE2;

@@ -6,7 +6,8 @@
 
 using namespace std;
 
-class AntenaAnd : public Objeto3D{
+class AntenaAnd : public Objeto3D
+{
   private:
     Revolucion sphere, cilind;
     Objeto3D objE, objC;

@@ -8,7 +8,8 @@
 
 using namespace std;
 
-class MediaPierna : public Objeto3D{
+class MediaPierna : public Objeto3D
+{
   private:
     float rad, high;
     Revolucion sphere, cilind;

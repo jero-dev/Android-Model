@@ -21,7 +21,6 @@ Escena::Escena()
 
 void Escena::inicializar(int UI_window_width,int UI_window_height)
 {
-
 	glClearColor(1,1,1,1);// se indica cual sera el color para limpiar la ventana	(r,v,a,al);
 
 	glEnable(GL_DEPTH_TEST);	// se habilita el z-bufer
@@ -30,11 +29,12 @@ void Escena::inicializar(int UI_window_width,int UI_window_height)
 	Width=UI_window_width/10;
 	Height=UI_window_height/10;
 	glViewport(0,0,UI_window_width,UI_window_height);
-
 }
 
-void Escena::animar(){
-  if(animacion){
+void Escena::animar()
+{
+  if(animacion)
+  {
     android.girarAnt();
     android.girarBrazo();
     android.girarPierna();
@@ -48,7 +48,8 @@ void Escena::animar(){
 //***************************************************************************
 void Escena::draw_objects()
 {
-  if(solido){
+  if(solido)
+  {
     glPushMatrix();
       glPushMatrix();
         android.setMode(GL_LINE);
@@ -75,7 +76,6 @@ void Escena::dibujar()
 
 int Escena::teclaPulsada(unsigned char Tecla1,int x,int y)
 {
-
   std::cout << "Tecla" << Tecla1<< std::endl;
 
   switch (toupper(Tecla1))
@@ -125,7 +125,8 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y)
 
 void Escena::teclaEspecial(int Tecla1,int x,int y)
 {
-  switch (Tecla1){
+  switch (Tecla1)
+  {
   	case GLUT_KEY_LEFT:Observer_angle_y--;break;
   	case GLUT_KEY_RIGHT:Observer_angle_y++;break;
   	case GLUT_KEY_UP:Observer_angle_x--;break;
@@ -139,7 +140,7 @@ void Escena::teclaEspecial(int Tecla1,int x,int y)
 
 
 //**************************************************************************
-// Funcion para definir la transformaci�n de proyeccion
+// Funcion para definir la transformación de proyeccion
 //***************************************************************************
 
 void Escena::change_projection()
@@ -160,7 +161,7 @@ void Escena::redimensionar(int newWidth,int newHeight)
 
 
 //**************************************************************************
-// Funcion para definir la transformaci�n de vista (posicionar la camara)
+// Funcion para definir la transformación de vista (posicionar la camara)
 //***************************************************************************
 
 

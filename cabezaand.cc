@@ -2,7 +2,8 @@
 #include <iostream>
 #include <cmath>
 
-CabezaAnd::CabezaAnd():Objeto3D(){
+CabezaAnd::CabezaAnd():Objeto3D()
+{
   vector<float> vert;
   sentido= true;
   velocidad= 1;
@@ -20,7 +21,8 @@ CabezaAnd::CabezaAnd():Objeto3D(){
   float grade= (M_PI/2) / 20;
   float angle= grade;
 
-  while(grade < M_PI/2){
+  while(grade < M_PI/2)
+  {
     vert.push_back(radE * cos(grade));
     vert.push_back(radE * sin(grade));
     vert.push_back(0.0);
@@ -38,7 +40,8 @@ CabezaAnd::CabezaAnd():Objeto3D(){
   objE.setColors(0.0, 0.75, 0.25);
 }
 
-void CabezaAnd::dibujar(){
+void CabezaAnd::dibujar()
+{
   glPushMatrix();
     glPushMatrix();
       objE.dibujar();
@@ -57,7 +60,8 @@ void CabezaAnd::dibujar(){
   glPopMatrix();
 }
 
-void CabezaAnd::girarAnt(){
+void CabezaAnd::girarAnt()
+{
   if(sentido)
     gradeAnt= gradeAnt - velocidad;
   else
@@ -69,18 +73,21 @@ void CabezaAnd::girarAnt(){
     sentido= true;
 }
 
-void CabezaAnd::setMode(GLenum polygonMode){
+void CabezaAnd::setMode(GLenum polygonMode)
+{
   objE.setMode(polygonMode);
   antenaIzq.setMode(polygonMode);
   antenaDcha.setMode(polygonMode);
 }
 
-void CabezaAnd::aumentarVelocidad(float vel){
+void CabezaAnd::aumentarVelocidad(float vel)
+{
   if(velocidad < 16)
     velocidad *= vel;
 }
 
-void CabezaAnd::disminuirVelocidad(float vel){
+void CabezaAnd::disminuirVelocidad(float vel)
+{
   if(velocidad > 1)
     velocidad /= vel;
 }

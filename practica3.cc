@@ -63,7 +63,8 @@ void normal_keys(unsigned char Tecla1,int x,int y)
 		glutPostRedisplay();
 }
 
-void animar(){
+void animar()
+{
 	escena->animar();
 	glutPostRedisplay();
 }
@@ -80,10 +81,12 @@ void animar(){
 
 void special_keys(int Tecla1,int x,int y)
 {
-	if (escena!=NULL){
+	if (escena!=NULL)
+	{
 		escena->teclaEspecial(Tecla1,x,y);
 		glutIdleFunc(animar);
 	}
+	
 	glutPostRedisplay();
 }
 

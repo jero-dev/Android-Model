@@ -2,7 +2,8 @@
 #include <iostream>
 #include <cmath>
 
-AntenaAnd::AntenaAnd():Objeto3D(){
+AntenaAnd::AntenaAnd():Objeto3D()
+{
   Revolucion cilind({2.5, 20.0, 0.0, 2.5, 0.0, 0.0}, 300, 'y');
 
   vector<float> vert;
@@ -38,7 +39,8 @@ AntenaAnd::AntenaAnd():Objeto3D(){
   objC.setColors(0.0, 0.75, 0.25);
 }
 
-void AntenaAnd::dibujar(){
+void AntenaAnd::dibujar()
+{
   glPushMatrix();
     glPushMatrix();
       glTranslatef(0.0, 20.0, 0.0);
@@ -50,7 +52,8 @@ void AntenaAnd::dibujar(){
   glPopMatrix();
 }
 
-void AntenaAnd::setMode(GLenum polygonMode){
+void AntenaAnd::setMode(GLenum polygonMode)
+{
   objE.setMode(polygonMode);
   objC.setMode(polygonMode);
 }

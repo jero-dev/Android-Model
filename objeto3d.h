@@ -21,4 +21,5 @@ class Objeto3D
     void setObject(vector<float> &vert, vector<int> &faces);
     void setColors(float x, float y, float z);
 };
+
 #endif
